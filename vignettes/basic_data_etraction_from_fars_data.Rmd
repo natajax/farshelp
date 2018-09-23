@@ -1,0 +1,39 @@
+---
+title: "Basic Information Extraction from FARS Data"
+author: "Natasa Formanova"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Basic Information Extraction from FARS Data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The functions bundled in the package `farshelp` provide tools for some basic manipulation of data from the US National Highway Traffic Safety Administration's [Fatality Analysis Reporting System](https://www.nhtsa.gov/Data/Fatality-Analysis-Reporting-System-(FARS)), which is a nationwide census providing the American public yearly data regarding fatal injuries suffered in motor vehicle traffic crashes.
+
+Example data for years 2013-2015 can be downloaded here:  
+[`fars.data.zip`](https://d3c33hcgiwev3.cloudfront.net/_e1adac2a5f05192dc8780f3944feec13_fars_data.zip?Expires=1537833600&Signature=VQQlF2cnmDt5opDQkL8peyB5LOJJJr8Jjdmg2yIQQRtMYwxf-CZ9iTuD2yQXuRHjivAXJrBQAujn7ZA5VJRn--O95So8D0X5eBmxGfuPucnYJI3vZ2JZSl-TZk4I-KLCvm3aZ6wz06TJlMZhdU8VZUmTCfiUk8sG56Iq-UFv1iY_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A)
+
+After unzipping the files nad placing them in the working directory, incidence of accidents for specified years can be extracted and summarized by year and month:
+
+```{r, }
+library(farshelp)
+
+my_years <- fars_summarize_years(c(2013, 2014))
+
+head(my_years)
+```
+
+Incidence of accidents for a single year in a given state can also be visualized on a map, by using the function `fars_map_state()` (note that states are identified by a numerical code):
+
+```{r, warning = FALSE}
+fars_map_state(state.num = 17, year = 2014)
+```
+
