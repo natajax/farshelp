@@ -1,0 +1,23 @@
+Package: farshelp
+Type: Package
+Title: Help Manipulate Fatality Analysis Rate System (FARS) Data
+Version: 0.0.0.9000
+Author: Natasa Formanova
+Maintainer: Natasa Formanova <my_email@somewhere.net>
+Description: Package farshelp provides some basic tools
+    for extracting and processing information from FARS
+    Data. It was developed as a learning tool.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Suggests: knitr,
+    rmarkdown,
+    testthat
+VignetteBuilder: knitr
+Imports: dplyr,
+    magrittr,
+    maps,
+    readr,
+    graphics,
+    tidyr
