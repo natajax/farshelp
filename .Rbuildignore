@@ -1,2 +1,3 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^accident_201\d{1}\.csv\.bz2$
